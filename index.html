@@ -85,11 +85,11 @@
 	}).addTo(map);
 
     function getWsColor(d) {
-    return d > 154 ? 'rgba(255,255,255,1.0)' :
-           d > 118 ? 'rgba(233,233,233,1.0)' :
+    return d > 154 ? 'rgba(164,164,164,1.0)' :
+           d > 118 ? 'rgba(187,187,187,1.0)' :
            d > 63  ? 'rgba(210,210,210,1.0)' :
-           d > 31  ? 'rgba(187,187,187,1.0)' :
-           d > 0   ? 'rgba(164,164,164,1.0)' :
+           d > 31  ? 'rgba(233,233,233,1.0)' :
+           d > 0   ? 'rgba(255,255,255,1.0)' :
                       'rgba(255,255,255,1.0)';
     }
     function styleWs(feature) {
@@ -179,6 +179,8 @@
     layer_Roads_2 = L.geoJson(json_Roads_2, {style:style_Roads_2_0}).addTo(map);
     layer_WaterFeatures_3 = L.geoJson(json_WaterFeatures_3, {style:style_WaterFeatures_3_0}).addTo(map);
     layer_RoadsWithin50MetersofWaterFeatures_4 = L.geoJson(json_RoadsWithin50MetersofWaterFeatures_4)//.addTo(map);
+
+    map.fitBounds(layer_WatershedKGofSaltperApplicationperkm2_1.getBounds());
 
     var baseMaps = {};
     var layerControl = L.control.layers(baseMaps,{'Roads Within 50 Meters of Water Features': layer_RoadsWithin50MetersofWaterFeatures_4,'Water Features<br />': layer_WaterFeatures_3,'Roads<br /><table>': layer_Roads_2,'Watershed - KG of Salt per Application per km2<br /><table><tr><td style="text-align: center;"><img src="legend/WatershedKGofSaltperApplicationperkm2_1_790503107100.png" /></td><td>0 - 31.1</td></tr><tr><td style="text-align: center;"><img src="legend/WatershedKGofSaltperApplicationperkm2_1_3107106308501.png" /></td><td>31.1 - 63.1</td></tr><tr><td style="text-align: center;"><img src="legend/WatershedKGofSaltperApplicationperkm2_1_63085011820302.png" /></td><td>63.1 - 118.2</td></tr><tr><td style="text-align: center;"><img src="legend/WatershedKGofSaltperApplicationperkm2_1_118203015409503.png" /></td><td>118.2 - 154.1</td></tr><tr><td style="text-align: center;"><img src="legend/WatershedKGofSaltperApplicationperkm2_1_154095019251504.png" /></td><td>154.1 - 192.5</td></tr></table>': layer_WatershedKGofSaltperApplicationperkm2_1},{collapsed:false}).addTo(map);    
